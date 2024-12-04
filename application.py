@@ -19,4 +19,4 @@ ar_app.register_blueprint(foundation_app, url_prefix='/foundation')
 
 
 if __name__ == '__main__':
-    ar_app.run(host='0.0.0.0', port=5001, debug=True)
+    ar_app.run(host='0.0.0.0', port=5000, debug=True)
