@@ -9,9 +9,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       .aurora {
-        background:
-            radial-gradient(circle at 10% 10%, rgba(133, 144, 255, 0.4) 0%, rgba(133, 144, 255, 0) 30%),
-            radial-gradient(circle at 90% 90%, rgba(133, 144, 255, 0.4) 0%, rgba(133, 144, 255, 0) 30%);
+        background: radial-gradient(
+            circle at 10% 10%,
+            rgba(76, 175, 80, 0.4) 0%,
+            rgba(76, 175, 80, 0) 30%
+          ),
+          radial-gradient(
+            circle at 90% 90%,
+            rgba(156, 39, 176, 0.4) 0%,
+            rgba(156, 39, 176, 0) 30%
+          );
       }
 
       .hidden-video {
@@ -32,9 +39,16 @@
       src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/GLTFLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediapipe-camera-utils/0.0.5/camera_utils.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.115/build/three.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.115/examples/js/loaders/GLTFLoader.js"></script>
   </head>
 
-  <body class="bg-gray-50 text-gray-900 min-h-screen font-sans overflow-y-auto">
+  <body class="bg-gray-950 text-white min-h-screen font-sans overflow-y-auto">
     <div class="aurora min-h-screen w-full">
       <!-- Main container with responsive layout -->
       <div
@@ -84,7 +98,7 @@
             Would you like to experience these as well?
           </p>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyLipstick()"
           >
             <img
@@ -95,7 +109,7 @@
             <span>Lipstick</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyFoundation()"
           >
             <img
@@ -106,7 +120,7 @@
             <span>Foundation</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyBlush()"
           >
             <img
@@ -121,8 +135,8 @@
     </div>
 
         <!-- Include Script -->
-        <script src="{{ url_for('ornaments.static', filename='script/mesh-ornaments.js') }}"></script>
-        <script src="{{ url_for('blush.static', filename='script/blush-mesh.js') }}"></script>
+        <script src="{{ url_for('ornaments.static', filename='script/mesh3d.js') }}"></script>
+        <!-- <script src="{{ url_for('blush.static', filename='script/blush-mesh.js') }}"></script> -->
     
         <script>
             window.onload = () => {

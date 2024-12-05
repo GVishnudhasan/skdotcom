@@ -13,7 +13,7 @@ nav,
         font-family: 'League Spartan', sans-serif;
     }
 
-
+    
 @media (max-width: 768px) {
     .mobile-section {
         text-align: center;
@@ -48,23 +48,11 @@ nav,
 
 @layer components {
     .custom-button {
-        background-color: #8B8BFF; /* Light purple color */
-        color: white;
-        padding: 12px 24px;
-        border-radius: 25px; /* Rounded corners */
-        font-family: 'Gilroy-Bold', sans-serif;
-        font-size: 18px;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      @apply bg-gradient-to-r from-[#FF8C00] to-[#FF1493] text-white font-bold py-3 px-6 rounded-lg text-lg uppercase tracking-wide shadow-md transition-all duration-300 ease-in-out;
     }
   
     .custom-button:hover {
-        background-color: #7878FF; /* Slightly darker on hover */
-        transform: translateY(-1px);
+      @apply transform -translate-y-1 shadow-lg;
     }
   
     .custom-button:active {
@@ -73,56 +61,52 @@ nav,
   }
 
 button {
-  background: #7B68EE;
+  background: linear-gradient(to right, #FF6B00, #FF009E);
   color: white;
   font-family: 'League Spartan', sans-serif;
   font-weight: bold;
   font-size: 18px;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.1s ease;
 }
 
 button:hover {
-  background: #6A5ACD;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
 }
 
 button:active {
-  transform: translateY(0);
+  transform: scale(0.95);
 }
 
 .custom-button,
 button.custom-button {
-  background: #7B68EE;
+  background: linear-gradient(to right, #FF6B00, #FF009E);
   color: white;
   font-family: 'League Spartan', sans-serif;
   font-weight: bold;
   font-size: 18px;
   text-transform: uppercase;
-  padding: 12px 24px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.1s ease;
 }
 
 .custom-button:hover,
 button.custom-button:hover {
-  background: #6A5ACD;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
 }
 
 .custom-button:active,
 button.custom-button:active {
-  transform: translateY(0);
+  transform: scale(0.95);
 }
 
 
@@ -224,7 +208,3 @@ button.custom-button:active {
 /* .nav-item.active {
     color: #FF6B00;
 } */
-
-.gilroy-bold {
-    font-family: 'Gilroy-Bold', sans-serif;
-}

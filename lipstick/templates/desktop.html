@@ -11,13 +11,13 @@
       .aurora {
         background: radial-gradient(
             circle at 10% 10%,
-            rgba(133, 144, 255, 0.4) 0%,
-            rgba(133, 144, 255, 0) 30%
+            rgba(76, 175, 80, 0.4) 0%,
+            rgba(76, 175, 80, 0) 30%
           ),
           radial-gradient(
             circle at 90% 90%,
-            rgba(133, 144, 255, 0.4) 0%,
-            rgba(133, 144, 255, 0) 30%
+            rgba(156, 39, 176, 0.4) 0%,
+            rgba(156, 39, 176, 0) 30%
           );
       }
 
@@ -41,7 +41,7 @@
     ></script>
   </head>
 
-  <body class="bg-gray-50 text-gray-900 min-h-screen font-sans overflow-y-auto">
+  <body class="bg-gray-950 text-white min-h-screen font-sans overflow-y-auto">
     <div class="aurora min-h-screen w-full">
       <!-- Main container with responsive layout -->
       <div
@@ -75,7 +75,7 @@
           class="z-20 w-full md:w-1/2 lg:w-2/5 md:ml-8 flex flex-col items-start space-y-4 overflow-y-auto p-4"
         >
           <!-- Lipstick Color Selection with Horizontal Scroll -->
-          <div class="w-full mb-4">
+          <!-- <div class="w-full mb-4">
             <p class="text-lg mb-2">Select Lipstick Color:</p>
             <div
               id="lipstick-root"
@@ -90,6 +90,22 @@
               ></button>
               {% endfor %}
             </div>
+          </div> -->
+          <div class="w-full mb-4">
+            <p class="text-lg mb-2">Select Lipstick Color:</p>
+            <div
+              id="lipstick-root"
+              class="flex space-x-2 overflow-x-auto pb-2 w-full"
+            >
+              {% for col in colours_funcs %}
+              <a
+                href="#"
+                class="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
+                style="{{ col.style }}"
+                onclick="{{ col.func }}"
+              ></a>
+              {% endfor %}
+            </div>
           </div>
 
           <!-- Other Filters (Lipstick, Foundation, Jewellery) -->
@@ -97,7 +113,7 @@
             Would you like to experience these as well?
           </p>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyFoundation()"
           >
             <img
@@ -108,15 +124,15 @@
             <span>Foundation</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyBlush()"
           >
             <img src="{{ blush_icon }}" alt="Blush" class="w-8 h-8 mr-3" />
             <span>Blush</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
-            onclick="applyJwllery()"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
+            onclick="applyJewelry()"
           >
             <img src="{{ jewelry_icon }}" alt="Jewelry" class="w-8 h-8 mr-3" />
             <span>Jewellery</span>
@@ -138,7 +154,7 @@
         window.location.href = "/blush";
       }
 
-      function applyJwllery() {
+      function applyJewelry() {
         console.log("Applying jwellery filter");
         window.location.href = "/jwellery";
       }

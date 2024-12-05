@@ -8,44 +8,16 @@
       rel="stylesheet"
       href="{{ url_for('homepage.static',filename='style.css') }}"
     />
-    <link rel="stylesheet" href="../static/style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'custom-blue': '#8590ff',
-            }
-          }
-        }
-      }
-    </script>
     <script src="{{ url_for('homepage.static',filename='script.js') }}"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.cdnfonts.com/css/gilroy-bold" rel="stylesheet">
-    <style>
-        h1, h2, .gilroy-bold {
-            font-family: 'Gilroy-Bold', sans-serif;
-            color: #8590ff;
-        }
-        
-        /* Also apply to nav items */
-        .nav-item {
-            font-family: 'Gilroy-Bold', sans-serif;
-        }
-        /* Remove shadow from images */
-        img {
-            box-shadow: none;
-        }
-    </style>
   </head>
-  <body class="bg-white min-h-screen">
+  <body class="bg-black min-h-screen">
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-50">
+    <nav class="bg-black shadow-lg fixed top-0 left-0 right-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo and menu items on the left -->
@@ -57,27 +29,27 @@
               <div class="flex items-center mt-2 space-x-4">
                 <a
                   href="#who-we-are"
-                  class="nav-item text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium relative"
+                  class="nav-item text-white px-3 py-2 rounded-md text-sm font-medium relative"
                   >Who We Are</a
                 >
                 <a
                   href="#lipsticks"
-                  class="nav-item text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium relative"
+                  class="nav-item text-white px-3 py-2 rounded-md text-sm font-medium relative"
                   >Lipsticks</a
                 >
                 <a
                   href="#jewellery"
-                  class="nav-item text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium relative"
+                  class="nav-item text-white px-3 py-2 rounded-md text-sm font-medium relative"
                   >Jewellery</a
                 >
                 <a
                   href="#foundation-shades"
-                  class="nav-item text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium relative"
+                  class="nav-item text-white px-3 py-2 rounded-md text-sm font-medium relative"
                   >Foundation Shades</a
                 >
                 <a
                   href="#blush"
-                  class="nav-item text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium relative"
+                  class="nav-item text-white px-3 py-2 rounded-md text-sm font-medium relative"
                   >Blush</a
                 >
               </div>
@@ -88,9 +60,15 @@
           <div class="hidden md:block">
             <div class="relative inline-block">
               <!-- Main button -->
-              <a href="/lipstick" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-              </a>
+              <div
+                class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  class="text-white font-bold text-sm uppercase tracking-wide"
+                  onclick="load()"
+                  >Try Now!</span
+                >
+              </div>
               <!-- Top white border -->
               <div
                 class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -110,9 +88,9 @@
           </div>
 
           <!-- Mobile menu button -->
-          <button
+          <!-- <button
             id="mobile-menu-button"
-            class="md:hidden text-gray-800 focus:outline-none"
+            class="md:hidden text-white focus:outline-none"
           >
             <svg
               class="h-6 w-6"
@@ -128,46 +106,72 @@
                 d="M4 6h16M4 12h16m-7 6h7"
               ></path>
             </svg>
-          </button>
+          </button> -->
+          <a
+            id="mobile-menu-button"
+            href="#"
+            class="md:hidden text-white focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </a>
         </div>
       </div>
 
       <!-- Mobile menu -->
       <nav
         id="mobile-menu"
-        class="md:hidden fixed inset-y-0 right-0 w-64 bg-white transform translate-x-full transition-transform duration-300 ease-in-out"
+        class="md:hidden fixed inset-y-0 right-0 w-64 bg-black transform translate-x-full transition-transform duration-300 ease-in-out"
       >
         <div class="p-6">
-          <button
+          <!-- <button
             id="close-mobile-menu"
-            class="text-gray-800 text-2xl absolute top-4 right-4"
+            class="text-white text-2xl absolute top-4 right-4"
           >
             &times;
-          </button>
+          </button> -->
+          <a
+            href="#"
+            id="close-mobile-menu"
+            class="text-white text-2xl absolute top-4 right-4"
+            >&times;</a
+          >
           <div class="mt-8">
             <a
               href="#who-we-are"
-              class="mobile-nav-item block text-white-800 hover:text-gray-600 text-xl mb-4"
+              class="mobile-nav-item block text-white text-xl mb-4"
               >Who We Are</a
             >
             <a
               href="#lipsticks"
-              class="mobile-nav-item block text-white-800 hover:text-gray-600 text-xl mb-4"
+              class="mobile-nav-item block text-white text-xl mb-4"
               >Lipsticks</a
             >
             <a
               href="#jewellery"
-              class="mobile-nav-item block text-white-800 hover:text-gray-600 text-xl mb-4"
+              class="mobile-nav-item block text-white text-xl mb-4"
               >Jewellery</a
             >
             <a
               href="#foundation-shades"
-              class="mobile-nav-item block text-white-800 hover:text-gray-600 text-xl mb-4"
+              class="mobile-nav-item block text-white text-xl mb-4"
               >Foundation Shades</a
             >
             <a
               href="#blush"
-              class="mobile-nav-item block text-white-800 hover:text-gray-600 text-xl mb-4"
+              class="mobile-nav-item block text-white text-xl mb-4"
               >Blush</a
             >
           </div>
@@ -176,31 +180,35 @@
     </nav>
 
     <!-- Main Content -->
-    <section id="who-we-are" class="relative overflow-hidden bg-white">
+    <section id="who-we-are" class="relative overflow-hidden">
       <div class="content-wrapper">
         <!-- Existing content -->
         <div class="relative z-10 rounded-lg p-8">
           <div class="flex flex-col md:flex-row items-center justify-between">
             <!-- Mobile view -->
             <div class="md:hidden mobile-section w-full mt-16">
-             
               <img
-                src="{{ model_img }}"
+                src="{{ url_for('homepage.static', filename='assets/model.png') }}"
                 alt="AR Shopping Experience"
                 class="rounded-lg shadow-lg"
               />
-               
-              <h1 class="text-xl font-bold text-black">
+              <h1 class="text-xl font-bold text-white">
                 Bringing Trial Rooms to your Hands
               </h1>
-              <p class="text-xl text-gray-600">
+              <p class="text-xl text-gray-300">
                 Leveraging AI & AR to Build the Future of Shopping!
               </p>
               <div class="relative inline-block">
                 <!-- Main button -->
-                <a href="/lipstick" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                  <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-                </a>
+                <div
+                  class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+                >
+                  <span
+                    class="text-white font-bold text-sm uppercase tracking-wide"
+                    onclick="load()"
+                    >Try Now!</span
+                  >
+                </div>
                 <!-- Top white border -->
                 <div
                   class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -224,17 +232,23 @@
               class="hidden md:flex md:flex-row items-center justify-between w-full"
             >
               <div class="md:w-1/2 md:pr-8">
-                <h1 class="text-5xl font-bold text-black mb-4">
-                  Bringing <span style="color: #8590ff;">Trial Rooms</span> to your Hands
+                <h1 class="text-5xl font-bold text-white mb-4">
+                  Bringing Trial Rooms to your Hands
                 </h1>
-                <p class="text-xl text-gray-600 mb-6">
+                <p class="text-xl text-gray-300 mb-6">
                   Leveraging AI & AR to Build the Future of Shopping!
                 </p>
                 <div class="relative inline-block">
                   <!-- Main button -->
-                  <a href="/lipstick" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                    <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-                  </a>
+                  <div
+                    class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+                  >
+                    <span
+                      class="text-white font-bold text-sm uppercase tracking-wide"
+                      onclick="load()"
+                      >Try Now!</span
+                    >
+                  </div>
                   <!-- Top white border -->
                   <div
                     class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -254,9 +268,9 @@
               </div>
               <div class="md:w-1/2">
                 <img
-                  src="{{ model_img }}"
+                  src="{{ url_for('homepage.static', filename='assets/model.png')}}"
                   alt="AR Shopping Experience"
-                  class="w-full rounded-lg"
+                  class="w-full rounded-lg shadow-lg"
                 />
               </div>
             </div>
@@ -267,31 +281,36 @@
 
     <!-- New Section -->
     <!-- Lipstick Try-On Section -->
-    <section id="lipsticks" class="bg-white py-12 md:py-16 lipstick-section">
+    <section id="lipsticks" class="bg-black py-12 md:py-16 lipstick-section">
       <div class="lipstick-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center">
           <!-- Mobile view (unchanged) -->
           <div class="md:hidden mobile-section w-full text-center">
             <img
-              src="{{ sec1_img }}"
+              src="{{ url_for('homepage.static', filename='assets/sec1.png')}}"
               alt="Lipstick Try-On Collage"
-              class="rounded-lg"
+              class="rounded-lg shadow-lg mx-auto"
             />
-            <h2 class="text-4xl font-bold text-black mb-6">
-              <span style="color: #8590ff;">Lipstick</span> Try-On
-            </h2>
-            <p class="text-xl text-gray-600">
+            <h2 class="text-4xl font-bold text-white mt-6">Lipstick Try-On</h2>
+            <p class="text-xl text-gray-300">
               Discover Your Perfect Lip Shade Instantly
             </p>
-            <ul class="text-gray-600 mb-6 text-lg list-none">
+            <ul class="text-gray-300 mb-6 text-lg list-none">
               <li class="mb-2">Test number of lipstick shades in real-time.</li>
               <li>No more guessing – find your ideal match with precision.</li>
             </ul>
             <div class="relative inline-block">
               <!-- Main button -->
-              <a href="/lipstick" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-              </a>
+              <div
+                class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+              >
+                <a href="{{ url_for('lipstick.index') }}"
+                  ><span
+                    class="text-white font-bold text-sm uppercase tracking-wide"
+                    >Try Now!</span
+                  ></a
+                >
+              </div>
               <!-- Top white border -->
               <div
                 class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -308,11 +327,11 @@
                 class="absolute -bottom-2 left-1 right-1 h-[2px] bg-white opacity-10"
               ></div>
             </div>
-            <div class="flex items-center mt-6">
-              <span class="text-5xl font-bold text-custom-blue mr-2">01</span>
+            <div class="flex items-center justify-center mt-8">
+              <span class="text-5xl font-bold text-white mr-2">01</span>
               <span class="text-xl text-gray-400">/04</span>
               <div class="flex ml-4">
-                <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
+                <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600"></div>
@@ -327,20 +346,23 @@
             <!-- Image (moved to the left) -->
             <div class="md:w-1/2 relative mb-8 md:mb-0">
               <img
-                src="{{ sec1_img }}"
+                src="{{ url_for('homepage.static', filename='assets/sec1.png')}}"
                 alt="Lipstick Try-On Collage"
-                class="w-full rounded-lg"
+                class="w-full rounded-lg shadow-lg"
               />
+              <div
+                class="absolute inset-0 bg-gradient-to-l from-black via-transparent to-transparent opacity-50"
+              ></div>
             </div>
             <!-- Text Content -->
             <div class="md:w-1/2 pl-16">
-              <h2 class="text-5xl font-bold text-black mb-4">
-                <span style="color: #8590ff;">Lipstick</span> Try-On
+              <h2 class="text-5xl font-bold text-white mb-4">
+                Lipstick Try-On
               </h2>
-              <p class="text-2xl text-gray-600 mb-6">
+              <p class="text-2xl text-gray-300 mb-6">
                 Discover Your Perfect Lip Shade Instantly
               </p>
-              <ul class="text-gray-600 mb-6 text-lg list-none">
+              <ul class="text-gray-300 mb-6 text-lg list-none">
                 <li class="mb-2">
                   Test number of lipstick shades in real-time.
                 </li>
@@ -350,9 +372,16 @@
               </ul>
               <div class="relative inline-block">
                 <!-- Main button -->
-                <a href="/lipstick" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                  <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-                </a>
+                <div
+                  class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+                >
+                  <a href="{{ url_for('lipstick.index') }}"
+                    ><span
+                      class="text-white font-bold text-sm uppercase tracking-wide"
+                      >Try Now!</span
+                    ></a
+                  >
+                </div>
                 <!-- Top white border -->
                 <div
                   class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -369,11 +398,11 @@
                   class="absolute -bottom-2 left-1 right-1 h-[2px] bg-white opacity-10"
                 ></div>
               </div>
-              <div class="flex items-center mt-6">
-                <span class="text-5xl font-bold text-custom-blue mr-2">01</span>
+              <div class="flex items-center pl-[12rem]">
+                <span class="text-5xl font-bold text-white mr-2">01</span>
                 <span class="text-xl text-gray-400">/04</span>
                 <div class="flex ml-4">
-                  <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
+                  <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
                   <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                   <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                   <div class="w-2 h-2 rounded-full bg-gray-600"></div>
@@ -386,70 +415,23 @@
     </section>
 
     <!-- Jewellery Try-On Section -->
-    <section id="jewellery" class="bg-white py-16 relative">
+    <section id="jewellery" class="bg-black py-16 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Mobile view -->
-        <div class="md:hidden mobile-section w-full text-center">
-          <img
-            src="{{ sec2_img }}"
-            alt="Jewellery Try-On Experience"
-            class="w-full rounded-lg"
-          />
-          <h2 class="text-4xl font-bold text-black mb-4">
-            <span style="color: #8590ff;">Jewellery</span> Try-On
-          </h2>
-          <p class="text-xl text-gray-600 mb-6">
-            Find the Right Bling for Every Occasion
-          </p>
-          <ul class="text-gray-600 mb-6 text-lg list-none">
-            <li class="mb-2">
-              Try on necklaces, earrings, and more in seconds.
-            </li>
-            <li>
-              See how different styles complement your look without stepping
-              into a store.
-            </li>
-          </ul>
-          <div class="relative inline-block">
-            <!-- Main button -->
-            <a href="/jwellery" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-              <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-            </a>
-            <!-- Button styling details... -->
-          </div>
-          <div class="flex items-center justify-center mt-6">
-            <span class="text-5xl font-bold text-custom-blue mr-2">02</span>
-            <span class="text-xl text-gray-400">/04</span>
-            <div class="flex ml-4">
-              <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-              <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
-              <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-              <div class="w-2 h-2 rounded-full bg-gray-600"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Desktop view -->
         <div
-          class="hidden md:flex md:flex-row-reverse items-center justify-between md:space-x-reverse md:space-x-8"
+          class="flex flex-col md:flex-row-reverse items-center justify-between md:space-x-reverse md:space-x-8"
         >
-          <!-- Image -->
-          <div class="md:w-1/2 relative mb-8 md:mb-0">
+          <!-- Mobile view -->
+          <div class="md:hidden mobile-section w-full text-center">
             <img
-              src="{{ sec2_img }}"
+              src="{{ url_for('homepage.static', filename='assets/sec2.png')}}"
               alt="Jewellery Try-On Experience"
-              class="w-full rounded-lg"
+              class="w-full rounded-lg shadow-lg mb-6 mx-auto"
             />
-          </div>
-          <!-- Text Content -->
-          <div class="md:w-1/2 pl-8">
-            <h2 class="text-5xl font-bold text-black mb-4">
-              <span style="color: #8590ff;">Jewellery</span> Try-On
-            </h2>
-            <p class="text-2xl text-gray-600 mb-6">
+            <h2 class="text-4xl font-bold text-white mb-4">Jewellery Try-On</h2>
+            <p class="text-xl text-gray-300 mb-6">
               Find the Right Bling for Every Occasion
             </p>
-            <ul class="text-gray-600 mb-6 text-lg list-none">
+            <ul class="text-gray-300 mb-6 text-lg list-none">
               <li class="mb-2">
                 Try on necklaces, earrings, and more in seconds.
               </li>
@@ -460,19 +442,85 @@
             </ul>
             <div class="relative inline-block">
               <!-- Main button -->
-              <a href="/jwellery" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-              </a>
+              <div
+                class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+              >
+                <a href="{{ url_for('ornaments.index') }}"
+                  ><span
+                    class="text-white font-bold text-sm uppercase tracking-wide"
+                    >Try Now!</span
+                  ></a
+                >
+              </div>
               <!-- Button styling details... -->
             </div>
-            <div class="flex items-center mt-6">
-              <span class="text-5xl font-bold text-custom-blue mr-2">02</span>
+            <div class="flex items-center justify-center mt-6">
+              <span class="text-5xl font-bold text-white mr-2">02</span>
               <span class="text-xl text-gray-400">/04</span>
               <div class="flex ml-4">
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-                <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
+                <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop view -->
+          <div
+            class="hidden md:flex md:flex-row-reverse items-center justify-between md:space-x-reverse md:space-x-8"
+          >
+            <!-- Image -->
+            <div class="md:w-1/2 relative mb-8 md:mb-0">
+              <img
+                src="{{ url_for('homepage.static', filename='assets/sec2.png')}}"
+                alt="Jewellery Try-On Experience"
+                class="w-full rounded-lg shadow-lg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-l from-black via-transparent to-transparent opacity-50"
+              ></div>
+            </div>
+            <!-- Text Content -->
+            <div class="md:w-1/2 pl-8">
+              <h2 class="text-5xl font-bold text-white mb-4">
+                Jewellery Try-On
+              </h2>
+              <p class="text-2xl text-gray-300 mb-6">
+                Find the Right Bling for Every Occasion
+              </p>
+              <ul class="text-gray-300 mb-6 text-lg list-none">
+                <li class="mb-2">
+                  Try on necklaces, earrings, and more in seconds.
+                </li>
+                <li>
+                  See how different styles complement your look without stepping
+                  into a store.
+                </li>
+              </ul>
+              <div class="relative inline-block">
+                <!-- Main button -->
+                <div
+                  class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+                >
+                  <a href="{{ url_for('ornaments.index') }}"
+                    ><span
+                      class="text-white font-bold text-sm uppercase tracking-wide"
+                      >Try Now!</span
+                    ></a
+                  >
+                </div>
+                <!-- Button styling details... -->
+              </div>
+              <div class="flex items-center mt-6">
+                <span class="text-5xl font-bold text-white mr-2">02</span>
+                <span class="text-xl text-gray-400">/04</span>
+                <div class="flex ml-4">
+                  <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
+                  <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
+                  <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
+                  <div class="w-2 h-2 rounded-full bg-gray-600"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -481,22 +529,22 @@
     </section>
 
     <!-- Foundation Shades Try-On Section -->
-    <section id="foundation-shades" class="bg-white py-16 relative">
+    <section id="foundation-shades" class="bg-black py-16 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Mobile view -->
         <div class="md:hidden mobile-section w-full text-center">
           <img
-            src="{{ sec3_img }}"
+            src="{{ url_for('homepage.static', filename='assets/sec3.png')}}"
             alt="Foundation Shades Try-On"
-            class="w-full rounded-lg"
+            class="w-full rounded-lg shadow-lg mb-6"
           />
-          <h2 class="text-4xl font-bold text-black mb-4">
-            <span style="color: #8590ff;">Foundation</span> Shades Try-On
+          <h2 class="text-4xl font-bold text-white mb-4">
+            Foundation Shades Try-On
           </h2>
-          <p class="text-xl text-gray-600 mb-6">
+          <p class="text-xl text-gray-300 mb-6">
             <em>Flawless Foundation, No More Guesswork</em>
           </p>
-          <ul class="text-gray-600 mb-6 text-lg list-none">
+          <ul class="text-gray-300 mb-6 text-lg list-none">
             <li class="mb-2">
               Match foundation shades to your skin tone instantly.
             </li>
@@ -504,9 +552,17 @@
           </ul>
           <div class="relative inline-block">
             <!-- Main button -->
-            <a href="/foundation" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-              <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-            </a>
+            <div
+              class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+            >
+              <a href="{{ url_for('foundation.index') }}"
+                ><span
+                  class="text-white font-bold text-sm uppercase tracking-wide"
+                  >Try Now!</span
+                ></a
+              >
+              <!-- <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span> -->
+            </div>
             <!-- Top white border -->
             <div
               class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -524,12 +580,12 @@
             ></div>
           </div>
           <div class="flex items-center justify-center mt-6">
-            <span class="text-5xl font-bold text-custom-blue mr-2">03</span>
+            <span class="text-5xl font-bold text-white mr-2">03</span>
             <span class="text-xl text-gray-400">/04</span>
             <div class="flex ml-4">
               <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
               <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-              <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
+              <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
               <div class="w-2 h-2 rounded-full bg-gray-600"></div>
             </div>
           </div>
@@ -540,20 +596,23 @@
           <!-- Image -->
           <div class="md:w-1/2 relative mb-8 md:mb-0 pl-8">
             <img
-              src="{{ sec3_img }}"
+              src="{{ url_for('homepage.static', filename='assets/sec3.png')}}"
               alt="Foundation Shades Try-On"
-              class="w-full rounded-lg"
+              class="w-full rounded-lg shadow-lg"
             />
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent opacity-50"
+            ></div>
           </div>
           <!-- Text Content -->
           <div class="md:w-1/2 pl-16">
-            <h2 class="text-5xl font-bold text-black mb-4">
-              <span style="color: #8590ff;">Foundation</span> Shades Try-On
+            <h2 class="text-5xl font-bold text-white mb-4">
+              Foundation Shades Try-On
             </h2>
-            <p class="text-2xl text-gray-600 mb-6">
+            <p class="text-2xl text-gray-300 mb-6">
               <em>Flawless Foundation, No More Guesswork</em>
             </p>
-            <ul class="text-gray-600 mb-6 text-lg list-disc list-inside">
+            <ul class="text-gray-300 mb-6 text-lg list-disc list-inside">
               <li class="mb-2">
                 Match foundation shades to your skin tone instantly.
               </li>
@@ -561,9 +620,17 @@
             </ul>
             <div class="relative inline-block">
               <!-- Main button -->
-              <a href="/foundation" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-              </a>
+              <div
+                class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+              >
+                <a href="{{ url_for('foundation.index') }}"
+                  ><span
+                    class="text-white font-bold text-sm uppercase tracking-wide"
+                    >Try Now!</span
+                  ></a
+                >
+                <!-- <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span> -->
+              </div>
               <!-- Top white border -->
               <div
                 class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -581,12 +648,12 @@
               ></div>
             </div>
             <div class="flex items-center pl-[12rem]">
-              <span class="text-5xl font-bold text-custom-blue mr-2">03</span>
+              <span class="text-5xl font-bold text-white mr-2">03</span>
               <span class="text-xl text-gray-400">/04</span>
               <div class="flex ml-4">
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-                <div class="w-2 h-2 rounded-full bg-custom-blue mr-2"></div>
+                <div class="w-2 h-2 rounded-full bg-white mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600"></div>
               </div>
             </div>
@@ -596,22 +663,20 @@
     </section>
 
     <!-- Blush Try-On Section -->
-    <section id="blush" class="bg-white py-16 relative">
+    <section id="blush" class="bg-black py-16 relative">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Mobile view -->
         <div class="md:hidden mobile-section w-full">
           <img
-            src="{{ sec4_img }}"
+            src="{{ url_for('homepage.static', filename='assets/sec4.png')}}"
             alt="Blush Try-On"
-            class="w-full rounded-lg"
+            class="rounded-lg shadow-lg"
           />
-          <h2 class="text-4xl font-bold text-black">
-            <span style="color: #8590ff;">Blush</span> Try-On
-          </h2>
-          <p class="text-xl text-gray-600">
+          <h2 class="text-4xl font-bold text-white">Blush Try-On</h2>
+          <p class="text-xl text-gray-300">
             <em>Find the Perfect Blush for Every Look</em>
           </p>
-          <ul class="text-gray-600 mb-6 text-lg list-disc list-inside">
+          <ul class="text-gray-300 mb-6 text-lg list-disc list-inside">
             <li class="mb-2">Choose the right blush for every makeup style.</li>
             <li>
               See how each shade enhances your natural glow before buying.
@@ -619,9 +684,17 @@
           </ul>
           <div class="relative inline-block">
             <!-- Main button -->
-            <a href="/blush" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-              <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-            </a>
+            <div
+              class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+            >
+              <a href="{{ url_for('blush.index') }}"
+                ><span
+                  class="text-white font-bold text-sm uppercase tracking-wide"
+                  >Try Now!</span
+                ></a
+              >
+              <!-- <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span> -->
+            </div>
             <!-- Top white border -->
             <div
               class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -639,13 +712,13 @@
             ></div>
           </div>
           <div class="flex items-center justify-center mt-8">
-            <span class="text-5xl font-bold text-custom-blue mr-2">04</span>
+            <span class="text-5xl font-bold text-white mr-2">04</span>
             <span class="text-xl text-gray-400">/04</span>
             <div class="flex ml-4">
               <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
               <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
               <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-              <div class="w-2 h-2 rounded-full bg-custom-blue"></div>
+              <div class="w-2 h-2 rounded-full bg-white"></div>
             </div>
           </div>
         </div>
@@ -654,13 +727,11 @@
         <div class="hidden md:flex md:flex-row items-center justify-between">
           <!-- Text Content -->
           <div class="md:w-1/2 pl-16">
-            <h2 class="text-5xl font-bold text-black mb-4">
-              <span style="color: #8590ff;">Blush</span> Try-On
-            </h2>
-            <p class="text-2xl text-gray-600 mb-6">
+            <h2 class="text-5xl font-bold text-white mb-4">Blush Try-On</h2>
+            <p class="text-2xl text-gray-300 mb-6">
               <em>Find the Perfect Blush for Every Look</em>
             </p>
-            <ul class="text-gray-600 mb-6 text-lg list-disc list-inside">
+            <ul class="text-gray-300 mb-6 text-lg list-disc list-inside">
               <li class="mb-2">
                 Choose the right blush for every makeup style.
               </li>
@@ -670,9 +741,17 @@
             </ul>
             <div class="relative inline-block">
               <!-- Main button -->
-              <a href="/blush" class="w-40 h-10 bg-custom-blue hover:bg-opacity-90 transition-all duration-300 flex items-center justify-center cursor-pointer rounded-lg pt-[2px]">
-                <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span>
-              </a>
+              <div
+                class="w-40 h-10 bg-gradient-to-r from-orange-500 to-pink-600 flex items-center justify-center cursor-pointer"
+              >
+                <a href="{{ url_for('blush.index') }}"
+                  ><span
+                    class="text-white font-bold text-sm uppercase tracking-wide"
+                    >Try Now!</span
+                  ></a
+                >
+                <!-- <span class="text-white font-bold text-sm uppercase tracking-wide">Try Now!</span> -->
+              </div>
               <!-- Top white border -->
               <div
                 class="absolute top-0 left-0 right-0 h-[1px] bg-white opacity-70"
@@ -690,23 +769,26 @@
               ></div>
             </div>
             <div class="flex items-center mt-6">
-              <span class="text-5xl font-bold text-custom-blue mr-2">04</span>
+              <span class="text-5xl font-bold text-white mr-2">04</span>
               <span class="text-xl text-gray-400">/04</span>
               <div class="flex ml-4">
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
                 <div class="w-2 h-2 rounded-full bg-gray-600 mr-2"></div>
-                <div class="w-2 h-2 rounded-full bg-custom-blue"></div>
+                <div class="w-2 h-2 rounded-full bg-white"></div>
               </div>
             </div>
           </div>
           <!-- Image -->
           <div class="md:w-1/2 relative mb-8 md:mb-0 pl-8">
             <img
-              src="{{ sec4_img }}"
+              src="{{ url_for('homepage.static', filename='assets/sec4.png')}}"
               alt="Blush Try-On"
-              class="w-full rounded-lg"
+              class="w-full rounded-lg shadow-lg"
             />
+            <div
+              class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-transparent opacity-50"
+            ></div>
           </div>
         </div>
       </div>

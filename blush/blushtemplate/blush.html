@@ -11,13 +11,13 @@
       .aurora {
         background: radial-gradient(
             circle at 10% 10%,
-            rgba(133, 144, 255, 0.4) 0%,
-            rgba(133, 144, 255, 0) 30%
+            rgba(76, 175, 80, 0.4) 0%,
+            rgba(76, 175, 80, 0) 30%
           ),
           radial-gradient(
             circle at 90% 90%,
-            rgba(133, 144, 255, 0.4) 0%,
-            rgba(133, 144, 255, 0) 30%
+            rgba(156, 39, 176, 0.4) 0%,
+            rgba(156, 39, 176, 0) 30%
           );
       }
 
@@ -41,7 +41,7 @@
     ></script>
   </head>
 
-  <body class="bg-gray-50 text-gray-900 min-h-screen font-sans overflow-y-auto">
+  <body class="bg-gray-950 text-white min-h-screen font-sans overflow-y-auto">
     <div class="aurora min-h-screen w-full">
       <!-- Main container with responsive layout -->
       <div
@@ -81,13 +81,21 @@
               id="lipstick-root"
               class="flex space-x-2 overflow-x-auto pb-2 w-full"
             >
-              {% for col in colours_funcs %}
+              <!-- {% for col in colours_funcs %}
               <button
                 type="button"
                 class="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
                 style="{{ col.style }}"
                 onclick="{{ col.func }}"
               ></button>
+              {% endfor %} -->
+              {% for col in colours_funcs %}
+              <a
+                href="#"
+                class="rounded-full w-12 h-12 border-2 border-white cursor-pointer"
+                style="{{ col.style }}"
+                onclick="{{ col.func }}"
+              ></a>
               {% endfor %}
             </div>
           </div>
@@ -97,7 +105,7 @@
             Would you like to experience these as well?
           </p>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applylipstick()"
           >
             <img
@@ -108,7 +116,7 @@
             <span>Lipstick</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyFoundation()"
           >
             <img
@@ -119,7 +127,7 @@
             <span>Foundation</span>
           </div>
           <div
-            class="flex items-center bg-gray-100 p-3 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors w-full"
+            class="flex items-center bg-white bg-opacity-10 p-3 rounded-lg cursor-pointer hover:bg-opacity-20 transition-colors w-full"
             onclick="applyJwllery()"
           >
             <img
